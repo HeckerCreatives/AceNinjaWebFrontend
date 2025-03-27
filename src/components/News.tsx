@@ -22,6 +22,7 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
   import { useLenis } from "@studio-freight/react-lenis"; 
+import PaginitionComponent from './common/Pagination';
   
 
 export interface NewsItem {
@@ -45,6 +46,9 @@ export default function News() {
     const [scrollLeft, setScrollLeft] = useState(0);
     const lenis = useLenis();
     const [open, setOpen] = useState(false)
+    const [currentPage, setCurrentPage] = useState(0)
+  const [totalPage, setTotalPage] = useState(0)
+  const [loading, setLoading] = useState(false)
 
 
     // Mouse Drag Handlers
@@ -105,14 +109,16 @@ export default function News() {
     }, []);
 
     useEffect(() => {
+        setLoading(true)
         const getData = async () => {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/news/getnews?limit=99999`)
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/news/getnews?limit=3&page=${currentPage}`)
 
             setList(response.data.data)
-
+            setTotalPage(response.data.totalPages)
+            setLoading(false)
         }
         getData()
-    },[])
+    },[currentPage])
 
 
     useEffect(() => {
@@ -122,6 +128,11 @@ export default function News() {
 
         return () => handleBodyScroll(false);
     }, []);
+
+    //paginition
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
 
     
   return (
@@ -145,7 +156,17 @@ export default function News() {
                 </div>
 
                 {list.length !== 0 ? (
-                    <div className="w-[88%] h-[75%] overflow-x-auto scrollbar-hidden cursor-pointer"
+                 <>
+                    {loading ? (
+                        <>
+                         <div className=' w-full flex items-center justify-center h-[300px] '>
+                            <span className=' spinner'></span>
+
+                        </div>
+                        </>
+                    ): (
+                        <>
+                        <div className="w-[88%] h-auto cursor-pointer overflow-x-auto overflow-y-hidden"
                     onMouseDown={startDragging}
                     onMouseMove={onDragging}
                     onMouseUp={stopDragging}
@@ -155,7 +176,7 @@ export default function News() {
                     onTouchEnd={stopTouch}
                     ref={containerRef}
                     >
-                    <div className="flex h-full gap-4 w-max">
+                    <div className="flex h-[85%] gap-4 w-max">
                         {list.map((item, index) => (
                             <div key={item.id} className="w-[365px] h-full  border-4 border-amber-900 bg-white rounded-sm p-[.1rem]">
                                 <div className="w-full min-h-[100%] h-full flex flex-col border-[1px] border-amber-500 p-2">
@@ -235,13 +256,28 @@ export default function News() {
                             </div>
                         ))}
                     </div>
+
+                    {list.length !== 0 && (
+                    <div className=' w-full flex items-center justify-center mb-4'>
+                    <PaginitionComponent currentPage={currentPage} total={totalPage} onPageChange={handlePageChange}/>
+
+                    </div>
+
+                    )}
                 </div>
+                        
+                        </>
+                    )}
+                    
+                 </>
                 
                 ) : (
                     <div className=' flex items-center justify-center w-full h-full '>
                         <p>No news yet.</p>
                     </div>
                 )}
+
+
 
                
                
@@ -263,45 +299,50 @@ export default function News() {
                     </div>
                 </div>
 
-                <Carousel  setApi={setApi}>
-                <CarouselContent className=''>
-                    {list.map((item, index) => (
-                         <CarouselItem key={item.id} className=' relative flex items-center justify-center'>
-                            <img src="/v2/header/Scroll TAB Vertical.png" alt="" />
-    
-                            <div className=' absolute w-[70%] md:w-[60%] h-[70%] border-4 border-amber-900 bg-white rounded-sm p-[.1rem]'>
-                                <div className=' w-full h-full flex flex-col border-[1px] border-amber-500 p-2'>
-    
-                                    {item.type === "image" ? (
-                                            <div 
-                                                className="w-full aspect-video bg-zinc-200"
-                                                style={{
-                                                    backgroundImage: `url('${process.env.NEXT_PUBLIC_API_URL}/${item.url}')`,
-                                                    backgroundRepeat: "no-repeat",
-                                                    backgroundSize: "cover",
-                                                    backgroundPosition: "bottom",
-                                                }}
-                                            >
-                                                <img src={`${process.env.NEXT_PUBLIC_API_URL}/${item.url}`} alt="img" />
-                                            </div>
-                                        ) : (
-                                            <div className="w-full aspect-video bg-zinc-200">
-                                                <iframe
-                                                    className="w-full h-full"
-                                                    src={`https://www.youtube.com/embed/${item.url.split("/").pop()?.split("?")[0]}`}
-                                                    title="YouTube Video"
-                                                    frameBorder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                ></iframe>
-                                            </div>
-                                        )}
-    
-                                    <div className=' w-full h-full p-4 flex flex-col items-center justify-center gap-4'>
-                                        <Dialog >
-                                        <DialogTrigger>
-                                        <h2 className=' text-start ~text-sm/2xl font-bold text-amber-800 line-clamp-2'>{item.title}</h2>
+                {list.length !== 0 ? (
+                   <>
+                   {loading ? (
+                    <>
+                    <div className=' w-full flex items-center justify-center h-[400px] '>
+                        <span className=' spinner'></span>
 
+                    </div>
+                    </>
+                   ): (
+                    <>
+                     <div className=" flex flex-wrap h-full gap-4 items-center justify-center">
+                        {list.map((item, index) => (
+                            <div key={item.id} className="max-w-[365px] w-full min-h-[355px]  border-4 border-amber-900 bg-white rounded-sm p-[.1rem]">
+                                <div className="w-full h-full flex flex-col border-[1px] min-h-[355px] border-amber-500 p-2">
+                                    {item.type === "image" ? (
+                                        <div 
+                                            className="w-full aspect-video bg-zinc-200"
+                                            style={{
+                                                backgroundImage: `url('${process.env.NEXT_PUBLIC_API_URL}/${item.url}')`,
+                                                backgroundRepeat: "no-repeat",
+                                                backgroundSize: "cover",
+                                                backgroundPosition: "bottom",
+                                            }}
+                                        >
+                                            <img src={`${process.env.NEXT_PUBLIC_API_URL}/${item.url}`} alt="img" />
+                                        </div>
+                                    ) : (
+                                        <div className="w-full aspect-video bg-zinc-200">
+                                            <iframe
+                                                className="w-full h-full"
+                                                src={`https://www.youtube.com/embed/${item.url.split("/").pop()?.split("?")[0]}`}
+                                                title="YouTube Video"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            ></iframe>
+                                        </div>
+                                    )}
+                
+                                    <div className="w-full h-full p-4 flex flex-col items-center justify-center gap-4">
+                                        <Dialog>
+                                        <DialogTrigger>
+                                            <h2 className=" ~text-sm/lg font-bold text-amber-800 lg:line-clamp-2 xl:line-clamp-3 underline">{item.title}</h2>
                                         </DialogTrigger>
                                         <DialogContent className=' overflow-y-auto max-h-[70vh] touch-none'>
                                             <DialogHeader>
@@ -340,35 +381,34 @@ export default function News() {
                                                 <h2 className=" text-start ~text-sm/lg font-bold text-amber-800 underline">{item.title}</h2>
                                                 <p className="  ~text-xs/sm text-start whitespace-pre-wrap">{item.content}</p>
                                             </div>
-
-                                            
-
                                         </DialogContent>
                                         </Dialog>
-                                        <p className=' text-start ~text-xs/lg line-clamp-2'>{item.content}</p>
-    
+
+                                        <p className="  ~text-xs/sm text-center line-clamp-3 xl:line-clamp-6">{item.content}</p>
                                     </div>
-    
                                 </div>
-    
                             </div>
-                        </CarouselItem>
-                    ))}
+                        ))}
+                    </div>
+
+                    {list.length !== 0 && (
+                    <div className=' w-full flex items-center justify-center mb-4'>
+                    <PaginitionComponent currentPage={currentPage} total={totalPage} onPageChange={handlePageChange}/>
+
+                    </div>
+                    )}
+                    </>
+                   )}
                    
+                   </>
+                
+                ) : (
+                    <div className=' flex items-center justify-center w-full h-[300px] '>
+                        <p>No news yet.</p>
+                    </div>
+                )}
 
-                  
-                   
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-                </Carousel>
-
-                <div className=' flex items-center justify-center gap-2 mt-6'>
-                    {Array.from({ length: list.length }).map((_, index) => (
-                        <GiSharpShuriken key={index} className={`${current === index + 1 ? ' text-amber-900 size-6 ' : 'text-zinc-500 size-4'} transition-all ease-linear duration-300`}/>
-                    ))}
-
-                </div>
+              
 
             </div>
 

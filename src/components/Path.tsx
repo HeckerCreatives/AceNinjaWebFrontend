@@ -58,7 +58,7 @@ export default function Path() {
                         <img src="/v2/path/Mage Path.png" alt="" className=''/>
                         <div className=' absolute right-2 w-[85%] md:w-[200px] -translate-y-16 flex flex-col gap-4 items-center justify-center'>
                             <p className=' ~text-xs/lg font-black uppercase text-center text-white shadow-text'>Mage Path</p>
-                            <p className=' text-xs w-[70%] text-center bg-none drop-shadow-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto labore perferendis minima, nobis culpa beatae.</p>
+                            <p className=' text-xs w-[70%] text-center bg-none drop-shadow-sm'>Master elemental magic to control the battle field and devastate enemies from afar</p>
 
                         </div>
                     </motion.div>
@@ -78,7 +78,7 @@ export default function Path() {
                         <img src="/v2/path/Samurai Path.png" alt="" className=''/>
                         <div className=' absolute right-2 w-[85%] md:w-[200px] -translate-y-16 flex flex-col gap-4 items-center justify-center'>
                             <p className=' ~text-xs/lg font-black uppercase text-center shadow-text'>Samurai Path</p>
-                            <p className=' text-xs w-[70%] text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto labore perferendis minima, nobis culpa beatae.</p>
+                            <p className=' text-xs w-[70%] text-center'>Excel in swordsmanship and honor, wielding your katana with precision and power</p>
 
                         </div>
                     </motion.div>
@@ -98,8 +98,7 @@ export default function Path() {
                         <img src="/v2/path/Scholar Path.png" alt="" className=''/>
                         <div className=' absolute right-2 w-[85%] md:w-[200px] -translate-y-16 flex flex-col gap-4 items-center justify-center'>
                             <p className=' ~text-xs/lg font-black uppercase text-center shadow-text'>Scholar Path</p>
-                            <p className=' text-xs w-[70%] text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto labore perferendis minima, nobis culpa beatae.</p>
-
+                            <p className=' text-xs w-[70%] text-center'>Uncover ancient secrets and wield mystical knowledge to outsmart enemies</p>
                         </div>
                     </motion.div>
 
@@ -118,7 +117,7 @@ export default function Path() {
                         <img src="/v2/path/Rogue Path.png" alt="" className=''/>
                         <div className=' absolute right-2 w-[85%] md:w-[200px] -translate-y-16 flex flex-col gap-4 items-center justify-center'>
                             <p className=' ~text-xs/lg font-black uppercase text-center shadow-text'>Rouge Path</p>
-                            <p className=' text-xs w-[70%] text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto labore perferendis minima, nobis culpa beatae.</p>
+                            <p className=' text-xs w-[70%] text-center'>Specialize in stealth and agility, executing lethal strikes and evading attacks</p>
 
                         </div>
                     </motion.div>
@@ -138,7 +137,7 @@ export default function Path() {
                         <img src="/v2/path/Dark Path.png" alt="" className=''/>
                         <div className=' absolute right-2 w-[85%] md:w-[200px] -translate-y-16 flex flex-col gap-4 items-center justify-center'>
                             <p className=' ~text-xs/lg font-black uppercase text-center shadow-text'>Dark Path</p>
-                            <p className=' text-xs w-[70%] text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto labore perferendis minima, nobis culpa beatae.</p>
+                            <p className=' text-xs w-[70%] text-center'>Wield forbidden powers to manipulate and overpower enemies, embracing the shadows</p>
 
                         </div>
                     </motion.div>
