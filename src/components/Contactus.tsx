@@ -1,7 +1,35 @@
+import { handleApiError } from '@/lib/errorHandler'
+import axios from 'axios'
 import { motion } from 'framer-motion'
-import React from 'react'
+import { span } from 'framer-motion/client'
+import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 export default function Contactus() {
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const sendMessage = async () => {
+        setLoading(true)
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/contactus/sendmessage`,{
+                email: email,
+                message: message
+            })
+        setLoading(false)
+        if(response.data.message === 'success'){
+            toast.success('Message sent successfully')
+            setEmail('')
+            setMessage('')
+        }
+
+        } catch (error) {
+        setLoading(false)
+
+            handleApiError(error)
+        }
+    }
   return (
     <div id='contact' className=' relative w-full h-[630px] flex items-center justify-center gap-8 py-20 scroll-m-32'
     style={{backgroundImage: "url('/v2/contact/Contact BG.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'left'}}
@@ -60,12 +88,12 @@ export default function Contactus() {
                     delay: 0
                 }}
                 className=' w-full flex gap-6'>
-                    <input type="email" placeholder='Email' className=' w-full ~p-2/4 bg-white lg:bg-zinc-200 rounded-md'/>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder='Email' className=' w-full ~p-2/4 bg-white lg:bg-zinc-200 rounded-md'/>
 
                     {/* <input type="text" placeholder='Subject' className=' w-full ~p-2/4 bg-white lg:bg-zinc-200 rounded-md' data-aos='fade-up' data-aos-duration={800} data-aos-delay={600}/> */}
                 </motion.div>
 
-                <motion.textarea name="" id="" placeholder='Write your message...' 
+                <motion.textarea name="" id="" placeholder='Write your message...' value={message} onChange={(e) => setMessage(e.target.value)} required 
                 className=' w-full h-[200px] bg-white lg:bg-zinc-200 ~p-2/4 rounded-md'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -90,9 +118,13 @@ export default function Contactus() {
                     delay: .4
                 }}
                 className=' w-full flex items-end justify-end'>
-                    <button className=' flex items-center justify-center'>
+                    <button onClick={sendMessage} disabled={loading} className=' flex items-center justify-center'>
                         <img src="/v2/contact/Submit BUTTON.png" alt="" />
-                        <p className=' ~text-sm/lg absolute text-black uppercase font-bold'>Submit</p>
+                        <p className=' ~text-sm/lg absolute text-black uppercase font-bold flex items-center justify-center gap-2'>
+                        {loading && (
+                            <span className=' spinner'></span>
+                        )}
+                        Submit</p>
                     </button>
 
                 </motion.div>

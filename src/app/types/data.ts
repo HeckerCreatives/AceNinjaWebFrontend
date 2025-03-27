@@ -4,8 +4,8 @@ export const links = [
     {name:'Home',path:'/#hero'},
     {name:'News',path:'/#news'},
     {name:'Download',path:'/#download'},
-    {name:'Contact US',path:'/#contact'},
-    {name:'Store',path:'/#store'},
+    {name:'Contact Us',path:'/#contact'},
+    // {name:'Store',path:'/#store'},
 ]
 
 export const bpLinks = [

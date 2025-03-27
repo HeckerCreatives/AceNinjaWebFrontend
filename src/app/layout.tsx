@@ -7,6 +7,7 @@ import SmoothScrolling from "@/components/SmoothScroll";
 import { useEffect, useState } from "react";
 import Loading from "@/components/common/Loading";
 import { AnimatePresence } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -53,11 +54,26 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="w-full flex items-center justify-center">
-          <SmoothScrolling>
+          {/* <SmoothScrolling> */}
             <AnimatePresence>
               {isLoaded ? children : <Loading />}
             </AnimatePresence>
-          </SmoothScrolling>
+          {/* </SmoothScrolling> */}
+          <Toaster
+              position="top-right"
+              reverseOrder={false}
+            
+             toastOptions={{
+              className:' ',
+              style:{
+                padding: '8px',
+                color: 'white',
+                backgroundColor: 'black',
+                fontSize: '12px'
+              }
+             }}
+             
+            />
         </div>
       </body>
     </html>

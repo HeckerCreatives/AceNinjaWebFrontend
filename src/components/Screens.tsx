@@ -15,7 +15,7 @@ export default function Screens() {
 
 
   return (
-    <div className=' w-full flex flex-col gap-12 items-center justify-center p-6 md:p-12 text-white'
+    <div className=' w-full flex flex-col gap-12 items-center justify-center p-6 md:p-12 text-white border-none'
     style={{backgroundImage: "url('/v2/screens/Red BG B.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'bottom'}}
     
     >

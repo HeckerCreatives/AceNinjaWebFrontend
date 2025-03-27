@@ -1,8 +1,64 @@
-import { links } from '@/app/types/data'
-import { Youtube } from 'lucide-react'
-import React from 'react'
+'use client'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { FaFacebook, FaDiscord, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+import { BsTwitterX } from 'react-icons/bs';
+
+const socialIcons: { [key: string]: JSX.Element } = {
+  fb: <FaFacebook className="w-6 h-6" />,   // Facebook
+  x: <BsTwitterX className="w-6 h-6 " />,     // Twitter/X
+  dc: <FaDiscord className="w-6 h-6" />,   // Discord
+  ig: <FaInstagram className="w-6 h-6" />,   // Instagram
+  tk: <FaTiktok className="w-6 h-6" />,         // TikTok
+  yt: <FaYoutube className="w-6 h-6" />,      // YouTube
+}
+
+export interface SocialLink {
+    link: string;
+    title: string;
+    type: string
+  }
+  
 
 export default function Footer() {
+    const [socials, setSocials] = useState<SocialLink[]>([])
+    const [dl, setDl] = useState<SocialLink[]>([])
+
+    
+        useEffect(() => {
+            const getData = async () => {
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/sociallinks/getsociallinkslp`)
+    
+                setSocials(response.data.data)
+    
+            }
+            getData()
+        },[])
+
+        useEffect(() => {
+            const getData = async () => {
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/downloadlinks/getdownloadlinkslp`)
+    
+                setDl(response.data.data)
+    
+            }
+            getData()
+        },[])
+
+        const renderIcon = (type: string) => {
+            switch (type) {
+              case "android": 
+                return  <img src="/v2/footer/Footer Google BUTTON.png" alt=""  className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />;
+              case "ios":
+                return  <img src="/v2/footer/Footer Apple BUTTON.png" alt="" className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />;
+              case "pc":
+                return  <img src="/v2/footer/Footer Steam BUTTON.png" alt=""  className=' w-[120px] mr-2 hover:-translate-y-1 duration-300 ease-linear' />;
+              default:
+                return <span className="w-6 h-6">❓</span>;
+            }
+          };
+
+
   return (
     <footer className=' w-full flex items-center justify-center bg-black text-white py-6'>
 
@@ -12,13 +68,12 @@ export default function Footer() {
                     <p className=' text-lg font-medium'>Follow us on:</p>
                     <img src="/v2/footer/Follow un on Line.png" alt="" />
                     <div className=' flex items-center gap-4 mt-4'>
-                        <a href="https://www.youtube.com/">
-                            <img src="/youtube.png" alt="" className=' h-[20px] md:h-[30px]' />
-                        </a>
-
-                        <a href="https://web.facebook.com/">
-                        <img src="/facebook.png" alt="" className=' h-[20px] md:h-[30px]' />
-                        </a>
+                        {socials.map((item, index) => (
+                            <a key={index} href={item.link} target='_blank'>
+                                 {socialIcons[item.type]} 
+                            </a>
+                        ))}
+                      
                     </div>
                     
                 </div>
@@ -29,12 +84,13 @@ export default function Footer() {
                     <p className=' text-sm md:hidden text-zinc-300'>Download our games on</p>
 
                     <div className=' flex flex-col gap-2'>
+                        {dl.map((item, index) => (
+                            <a key={index} href={item.link} target='_blank'>
+                                {renderIcon(item.type)} 
+                            </a>
+                        ))}
 
-                        <img src="/v2/footer/Footer Steam BUTTON.png" alt=""  className=' w-[120px] mr-2 hover:-translate-y-1 duration-300 ease-linear' />
-                        <img src="/v2/footer/Footer Google BUTTON.png" alt=""  className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />
-                        <img src="/v2/footer/Footer Apple BUTTON.png" alt="" className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />
-
-
+                    
                     </div>
                 </div>
 
@@ -63,13 +119,11 @@ export default function Footer() {
                 <div className=' flex flex-col gap-2'>
                     <p className=' ~text-sm/lg font-medium'>Follow us on:</p>
                     <div className=' flex items-center justify-center gap-4 mt-4'>
-                        <a href="https://www.youtube.com/">
-                            <img src="/youtube.png" alt="" className=' h-[20px] md:h-[30px]' />
-                        </a>
-
-                        <a href="https://web.facebook.com/">
-                        <img src="/facebook.png" alt="" className=' h-[20px] md:h-[30px]' />
-                        </a>
+                        {socials.map((item, index) => (
+                            <a key={index} href={item.link}>
+                                 {socialIcons[item.type]} 
+                            </a>
+                        ))}
                     </div>
                     
                 </div>
@@ -79,9 +133,12 @@ export default function Footer() {
 
                     <div className=' flex flex-col items-center justify-center gap-2'>
 
-                        <img src="/v2/footer/Footer Steam BUTTON.png" alt=""  className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />
-                        <img src="/v2/footer/Footer Google BUTTON.png" alt=""  className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />
-                        <img src="/v2/footer/Footer Apple BUTTON.png" alt="" className=' w-[120px] hover:-translate-y-1 duration-300 ease-linear' />
+
+                    {dl.map((item, index) => (
+                            <a key={index} href={item.link} target='_blank'>
+                                {renderIcon(item.type)} 
+                            </a>
+                        ))}
 
 
                     </div>

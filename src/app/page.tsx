@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Path from "@/components/Path";
 import Screens from "@/components/Screens";
 import { useRouter } from 'next/navigation';
+import News from '@/components/News';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("hero"); // State to track active section
@@ -20,34 +21,38 @@ export default function Home() {
   const pathRef = useRef<HTMLDivElement>(null);
   const screensRef = useRef<HTMLDivElement>(null);
   const downloadRef = useRef<HTMLDivElement>(null);
+  const newsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   // Framer Motion's scroll hook
   const { scrollYProgress } = useScroll();
 
-  // Update the active section based on scroll position
   useMotionValueEvent(scrollYProgress, "change", () => {
     const sections = [
-      { id: "hero", ref: heroRef },
-      { id: "path", ref: pathRef },
-      { id: "screens", ref: screensRef },
-      { id: "download", ref: downloadRef },
-      { id: "contact", ref: contactRef },
+        { id: "hero", ref: heroRef },
+        { id: "path", ref: pathRef },
+        { id: "screens", ref: screensRef },
+        { id: "download", ref: downloadRef },
+        { id: "news", ref: newsRef },
+        { id: "contact", ref: contactRef },
     ];
 
-    sections.forEach((section) => {
-      const element = section.ref.current;
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+    let currentSection = "hero"; // Default section
 
-        // Detect if the section is in the viewport
-        if (rect.top >= 0 && rect.top < windowHeight / 1) {
-          setActiveSection(section.id);
+    sections.forEach((section) => {
+        const element = section.ref.current;
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.top >= 0 && rect.top < windowHeight / 2) {
+                currentSection = section.id;
+            }
         }
-      }
     });
-  });
+
+    setActiveSection(currentSection);
+});
 
 
   return (
@@ -63,9 +68,16 @@ export default function Home() {
         <div id="screens" ref={screensRef} className=' w-full'>
           <Screens />
         </div>
-        <div id="download" ref={downloadRef} className=' w-full'>
-          <Download />
+        <div className=' z-10 w-screen' style={{backgroundImage: "url('/v2/download/White BG B.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'bottom'}}>
+          <div id="download" ref={downloadRef} className=' w-full'>
+            <Download />
+          </div>
+          <div id="news" ref={newsRef} className=' w-full'>
+            <News />
+          </div>
         </div>
+        
+        
         <div id="contact" ref={contactRef} className=' w-full'>
           <Contactus />
         </div>

@@ -67,6 +67,7 @@ export default function Navbar(prop: Prop) {
     }
 
 
+
   return (
     <nav className=' fixed z-50 top-0 max-w-[1440px] w-full h-auto text-white px-8'
 
@@ -81,9 +82,7 @@ export default function Navbar(prop: Prop) {
                 <div className=' hidden lg:flex items-center gap-8'>
                     {links.map((item, index) => (
                         <>
-                        {item.name !== 'Store' && (
                             <a href={item.path} key={index} className={`text-sm font-semibold uppercase text-black hover:text-red-900 ${item.path.split('/')[1].includes(prop.active) && 'text-red-900 underline'} cursor-pointer `}>{item.name}</a>
-                        )}
                         </>
                         
                     ))}
@@ -92,12 +91,10 @@ export default function Navbar(prop: Prop) {
 
             <button onClick={() => setOpen(!open)}  className=' lg:hidden block'>
                 {open ? <X size={30} /> : <AlignJustify size={30} />}
-
             </button>
 
-
-
-            <img src='/v2/navigation/store BUTTON.png' alt="" width={130} />
+            <a href={`${process.env.NEXT_PUBLIC_LOGIN_URL}`} target='_blank' className='bg-yellow-600 px-6 py-2 rounded-sm text-sm hover:scale-105 transition-all duration-200 '>Login</a>
+            {/* <img src='/v2/navigation/store BUTTON.png' alt="" width={130} /> */}
 
 
         </div>

@@ -4,8 +4,8 @@ import React from 'react'
 
 export default function Path() {
   return (
-    <div className=' relative w-full h-auto bg-black '>
-        <div className=' w-full h-full flex flex-col items-center justify-center -translate-y-32 lg:-translate-y-32 text-white py-32 lg:py-60'
+    <div className=' relative w-full h-auto bg-black border-none'>
+        <div className=' w-full h-full flex flex-col items-center justify-center -translate-y-32 lg:-translate-y-32 text-white py-32 lg:py-60 border-none'
         style={{backgroundImage: "url('/v2/path/Red BG A.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'top right'}}
         >
 
