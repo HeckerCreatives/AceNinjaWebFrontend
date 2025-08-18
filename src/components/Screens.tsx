@@ -15,11 +15,11 @@ export default function Screens() {
 
 
   return (
-    <div className=' w-full flex flex-col gap-12 items-center justify-center p-6 md:p-12 text-white border-none'
-    style={{backgroundImage: "url('/v2/screens/Red BG B.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'bottom'}}
+    <div className=' w-full flex flex-col gap-12 items-center justify-center p-6 md:p-12 text-white border-t-4 border-black bg-black'
+    // style={{backgroundImage: "url('/v2/screens/Red BG B.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'bottom'}}
     
     >
-        <div className=' w-full max-w-[1440px] pb-48 flex flex-col gap-28 lg:gap-40 items-center'>
+        <div className=' w-full max-w-[1440px] pb-48 flex flex-col gap-28 lg:gap-40 items-center border-none'>
             <div className=' w-full grid grid-cols-1 lg:grid-cols-2 ~gap-8/12'>
                 {/* <img src="/v2/screens/Phone A.png" alt=""/> */}
 

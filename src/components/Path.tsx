@@ -4,12 +4,12 @@ import React from 'react'
 
 export default function Path() {
   return (
-    <div className=' relative w-full h-auto bg-black border-none'>
+    <div className=' relative w-full h-auto bg-black border-spacing-2 border-black'>
         <div className=' w-full h-full flex flex-col items-center justify-center -translate-y-32 lg:-translate-y-32 text-white py-32 lg:py-60 border-none'
         style={{backgroundImage: "url('/v2/path/Red BG A.png')",backgroundRepeat:'no-repeat',backgroundSize:'cover', backgroundPosition:'top right'}}
         >
 
-            <div className=' w-full flex flex-col ~gap-6/12 items-center justify-center max-w-[1440px] lg:px-8'>
+            <div className=' w-full flex flex-col ~gap-6/12 items-center justify-center max-w-[1440px] lg:px-8 border-none'>
                 <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

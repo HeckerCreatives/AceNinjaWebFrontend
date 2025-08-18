@@ -166,7 +166,7 @@ export default function News() {
                         </>
                     ): (
                         <>
-                        <div className="w-[88%] h-auto cursor-pointer overflow-x-auto overflow-y-hidden"
+                        <div className="w-[88%] h-[80%] flex flex-col cursor-pointer overflow-x-auto overflow-y-hidden"
                     onMouseDown={startDragging}
                     onMouseMove={onDragging}
                     onMouseUp={stopDragging}
@@ -176,7 +176,7 @@ export default function News() {
                     onTouchEnd={stopTouch}
                     ref={containerRef}
                     >
-                    <div className="flex h-[85%] gap-4 w-max">
+                    <div className="flex h-full gap-4 w-max ">
                         {list.map((item, index) => (
                             <div key={item.id} className="w-[365px] h-full  border-4 border-amber-900 bg-white rounded-sm p-[.1rem]">
                                 <div className="w-full min-h-[100%] h-full flex flex-col border-[1px] border-amber-500 p-2">
@@ -205,7 +205,7 @@ export default function News() {
                                         </div>
                                     )}
                 
-                                    <div className="w-full h-full p-4 flex flex-col items-center justify-center gap-4">
+                                    <div className="w-full h-full p-4 flex flex-col gap-4">
                                         <Dialog>
                                         <DialogTrigger>
                                             <h2 className=" ~text-sm/lg font-bold text-amber-800 lg:line-clamp-2 xl:line-clamp-3 underline">{item.title}</h2>
@@ -250,7 +250,7 @@ export default function News() {
                                         </DialogContent>
                                         </Dialog>
 
-                                        <p className="  ~text-xs/sm text-center line-clamp-3 xl:line-clamp-6">{item.content}</p>
+                                        <p className="  ~text-xs/sm text-start line-clamp-3 xl:line-clamp-6">{item.content}</p>
                                     </div>
                                 </div>
                             </div>
