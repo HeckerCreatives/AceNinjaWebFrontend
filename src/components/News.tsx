@@ -250,7 +250,7 @@ export default function News() {
                                         </DialogContent>
                                         </Dialog>
 
-                                        <p className="  ~text-xs/sm text-start line-clamp-3 xl:line-clamp-6">{item.content}</p>
+                                        <p className="  ~text-xs/sm text-start line-clamp-3 xl:line-clamp-4">{item.content}</p>
                                     </div>
                                 </div>
                             </div>

@@ -82,7 +82,9 @@ export default function Navbar(prop: Prop) {
                 <div className=' hidden lg:flex items-center gap-8'>
                     {links.map((item, index) => (
                         <>
-                            <a href={item.path} key={index} className={`text-sm font-semibold uppercase text-black hover:text-red-900 ${item.path.split('/')[1].includes(prop.active) && 'text-red-900 underline'} cursor-pointer `}>{item.name}</a>
+                            {/* <a href={item.path} key={index} className={`text-sm font-semibold uppercase text-black hover:text-red-900 ${item.path.split('/')[1].includes(prop.active) && 'text-red-900 underline'} cursor-pointer `}>{item.name}</a> */}
+
+                            <a href={item.path} key={index} className={`text-sm font-semibold uppercase text-black hover:text-red-900  cursor-pointer `}>{item.name}</a>
                         </>
                         
                     ))}

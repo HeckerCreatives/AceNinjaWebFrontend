@@ -11,6 +11,7 @@ import Path from "@/components/Path";
 import Screens from "@/components/Screens";
 import { useRouter } from 'next/navigation';
 import News from '@/components/News';
+import LandingPageLayout from '@/components/layout/LandingPageLayout';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("hero"); // State to track active section
@@ -56,9 +57,8 @@ export default function Home() {
 
 
   return (
-    <div className="relative w-full flex flex-col items-center justify-center overflow-x-hidden">
-      <Navbar active={activeSection}/>
-      <main className="w-full h-auto flex flex-col items-center justify-center">
+    <LandingPageLayout>
+       <main className="w-full h-auto flex flex-col items-center justify-center">
         <div id="hero" ref={heroRef} className=' w-full'>
           <Hero />
         </div>
@@ -82,7 +82,6 @@ export default function Home() {
           <Contactus />
         </div>
       </main>
-      <Footer />
-    </div>
+    </LandingPageLayout>
   );
 }
