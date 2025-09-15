@@ -61,7 +61,7 @@ export default function Footer() {
 
 
   return (
-    <footer className=' w-full flex flex-col items-center justify-center bg-black text-white py-6'>
+    <footer className=' w-full flex flex-col items-center justify-center bg-black text-white py-6 '>
 
         <div className=' max-w-[1440px] hidden lg:flex flex-col gap-4 w-full'>
             <div className=' w-full grid md:grid-cols-1 lg:grid-cols-3 border-zinc-800 p-8'>
@@ -156,11 +156,11 @@ export default function Footer() {
             
         </div>
 
-        <div className=' flex lg:items-center lg:justify-center flex-col gap-4 text-zinc-300  text-center'>
+        <div className=' flex lg:items-center lg:justify-center flex-col gap-4 text-zinc-300  text-center px-8'>
             <p className=' text-xs md:text-sm max-w-[32rem] text-start lg:text-center'>© 2024 Ace. All rights reserved. Unauthorized use, reproduction, or distribution of any content is strictly prohibited.</p>
             
 
-            <div className=' flex items-start lg:items-center gap-4 text-white underline text-xs md:text-sm'>
+            <div className=' flex items-start lg:items-center gap-4 text-white underline text-xs md:text-sm' >
                 <Link href='/privacypolicy'>Privacy Policy</Link>
                 <Link href='/terms&conditions'>Terms & Conditions </Link>
 
