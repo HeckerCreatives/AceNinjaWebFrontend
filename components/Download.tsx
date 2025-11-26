@@ -75,7 +75,7 @@ export default function Download() {
                 <Image src="/optimize/download/Line.webp" alt="arrow" loading='lazy' width={150} height={50}  />
             </div>
 
-            <p className=' text-sm font-semibold text-center w-[60%] text-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam, aspernatur blanditiis ipsum sint mollitia nisi earum neque aut ex velit nulla optio deleniti necessitatibus officia, quos commodi modi iste.</p>
+            <p className=' text-sm font-semibold text-center w-[60%] text-black'>Ace Ninja Path is now available for download. Discover a new world of adventure and challenges. Play anytime, anywhere, on your mobile device. Download it today on Google Play Store, iOS and Steam.</p>
 
             <div className=' w-full flex flex-col lg:flex-row items-center justify-center ~gap-4/8'>
             {dl.map((item, index) => (
