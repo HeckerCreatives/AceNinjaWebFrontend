@@ -45,7 +45,7 @@ export default function LandingPageLayout({children}: Props) {
           {children}
 
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </div>
   )
 }

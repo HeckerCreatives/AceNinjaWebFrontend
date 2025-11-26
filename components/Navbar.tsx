@@ -104,7 +104,7 @@ export default function Navbar(prop: Prop) {
                 {open ? <X size={30} /> : <AlignJustify size={30} />}
             </button>
 
-            <Link href={`${process.env.NEXT_PUBLIC_LOGIN_URL}`} target='_blank' className='bg-yellow-600 px-6 py-2 rounded-sm text-sm hover:scale-105 transition-all duration-200 '>Login</Link>
+            <Link href={`${process.env.NEXT_PUBLIC_LOGIN_URL}`} target='_blank' className='bg-yellow-600 px-6 py-2 rounded-sm text-sm hover:scale-105 transition-all duration-200 relative z-50 '>Login</Link>
 
 
         </div>
