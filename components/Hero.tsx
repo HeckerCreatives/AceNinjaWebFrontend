@@ -64,7 +64,7 @@ export default function Hero() {
             />
 
             <div className="absolute max-w-[400px] lg:w-full w-[70%] flex flex-col items-center justify-center gap-4 h-[300px] text-amber-950">
-              <h2 className=" text-[1.5rem] md:text-[1.8rem] text-center font-bold uppercase">
+              <h2 className=" text-[1.2rem] md:text-[1.8rem] text-center font-bold uppercase">
                 BECOME ULTIMATE NINJA!
               </h2>
               <p className="~text-xs/lg text-center">

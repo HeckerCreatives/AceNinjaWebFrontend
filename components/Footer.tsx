@@ -69,7 +69,7 @@ export default function Footer() {
                 <div className=' flex flex-col gap-2'>
                     <p className=' text-lg font-medium'>Follow us on:</p>
                     <Image src="/optimize/footer/Follow un on Line.webp" alt="line" loading='lazy' width={300} height={10} />
-                    <div className=' flex items-center gap-4 mt-4'>
+                    <div className=' flex items-start gap-4 mt-4'>
                         {socials.map((item, index) => (
                             <Link key={index} href={item.link} target='_blank'>
                                  {socialIcons[item.type]} 
@@ -112,7 +112,7 @@ export default function Footer() {
 
                 <div className=' flex flex-col gap-2'>
                     <p className=' ~text-sm/lg font-medium'>Follow us on:</p>
-                    <div className=' flex items-center justify-center gap-4 mt-4'>
+                    <div className=' flex items-start justify-start gap-4 mt-4'>
                         {socials.map((item, index) => (
                             <Link key={index} href={item.link}>
                                  {socialIcons[item.type]} 
@@ -122,7 +122,7 @@ export default function Footer() {
                     
                 </div>
 
-                <div className=' flex flex-col gap-2'>
+                <div className=' flex flex-col gap-2 mt-4'>
                     <p className=' ~text-xs/sm text-zinc-300'>Download our games on</p>
 
                     <div className=' flex flex-col items-center justify-center gap-2'>

@@ -134,16 +134,16 @@ export default function Navbar(prop: Prop) {
             className=' relative'
             >
                 {/* <img ref={imgRef} src="/v2/navigation/Group 3.png" alt="" className=' h-full' /> */}
-                 <Image
-                 ref={imgRef}
-                src="/optimize/navigation/Group 3.png"
-                alt="nav"
-                width={500}
-                height={500}
-                priority
-                quality={75}
-                className=" w-full h-full"
-              />
+                <Image
+                    ref={imgRef}
+                    src="/optimize/navigation/Group 3.png"
+                    alt="nav"
+                    width={500}
+                    height={500}
+                    priority
+                    quality={75}
+                    className=" w-full h-full"
+                />
 
                 <AnimatePresence>
                     {open && (
@@ -162,7 +162,6 @@ export default function Navbar(prop: Prop) {
                                 ) : (
                                     <>
                                     {/* {item.path.split('/')[1].includes(prop.active) && <Image src="/optimize/navigation/kunai2.png" alt="kunai" loading='lazy' width={25} height={25} className=' kunai rotate-45' />} */}
-
                                     {item.name}
                                     </>
                                 )}
