@@ -116,7 +116,7 @@ export default function Navbar(prop: Prop) {
             <button aria-label='btn'  onClick={() => setOpen(!open)} className=' absolute lg:hidden right-0 z-20 h-[40px] aspect-square p-2 flex items-center justify-center '
             >
                 <Image
-                src="/optimize/navigation/Box.png"
+                src="/optimize/navigation/BOX.png"
                 alt="nav"
                 fill
                 priority
