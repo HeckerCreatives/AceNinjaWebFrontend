@@ -71,7 +71,7 @@ export default function Download() {
         <div  className=' max-w-[1240px] w-full flex flex-col gap-8 items-center justify-center scroll-mt-40'>
             <div className=' flex items-center justify-center gap-8'>
                 <Image src="/optimize/download/Line.webp" alt="arrow" loading='lazy' width={150} height={50} className=' rotate-180' />
-                <h2 className=' text-3xl font-bold uppercase text-black'>Download</h2>
+                <h2 className=' text-2xl md:text-3xl font-bold uppercase text-black'>Download</h2>
                 <Image src="/optimize/download/Line.webp" alt="arrow" loading='lazy' width={150} height={50}  />
             </div>
 

@@ -53,7 +53,7 @@ export default function Screens() {
                      }}
                     className=' flex items-center justify-center gap-4'>
                         <img src="/optimize/screens/Title side B.webp" alt="" className=' w-6' />
-                        <h2 className=' uppercase text-2xl font-bold text-center'>Challenge other players</h2>
+                        <h2 className=' uppercase text-lg md:text-2xl font-bold text-center'>Challenge other players</h2>
                         <img src="/optimize/screens/Title side B.webp" alt="" className=' rotate-180 w-6' />
                     </motion.div>
 
@@ -90,7 +90,7 @@ export default function Screens() {
                      }}
                     className=' flex items-center justify-center gap-4'>
                         <img src="/optimize/screens/Title side B.webp" alt="" className=' w-6' />
-                        <h2 className=' uppercase text-2xl font-bold text-center'>RISE WITH YOUR CLAN ON TOP!</h2>
+                        <h2 className=' uppercase text-lg md:text-2xl font-bold text-center'>RISE WITH YOUR CLAN ON TOP!</h2>
                         <img src="/optimize/screens/Title side B.webp" alt="" className=' rotate-180 w-6' />
                     </motion.div>
 
@@ -163,7 +163,7 @@ export default function Screens() {
                      }}
                     className=' flex items-center justify-center gap-4'>
                         <img src="/optimize/screens/Title side B.webp" alt="" className=' w-6' />
-                        <h2 className=' uppercase text-2xl font-bold text-center'>Challenge other players</h2>
+                        <h2 className=' uppercase text-lg md:text-2xl font-bold text-center'>Challenge other players</h2>
                         <img src="/optimize/screens/Title side B.webp" alt="" className=' rotate-180 w-6' />
                     </motion.div>
 

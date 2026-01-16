@@ -64,10 +64,10 @@ export default function Hero() {
             />
 
             <div className="absolute max-w-[400px] lg:w-full w-[70%] flex flex-col items-center justify-center gap-4 h-[300px] text-amber-950">
-              <h2 className=" text-[1.2rem] md:text-[1.8rem] text-center font-bold uppercase">
+              <h2 className=" text-[1rem] md:text-[1.8rem] text-center font-bold uppercase">
                 BECOME ULTIMATE NINJA!
               </h2>
-              <p className="~text-xs/lg text-center">
+              <p className=" text-sm md:text-lg text-center">
                 Welcome to <span className="font-semibold">ACE – Ninja Path</span>, where
                 your ninja journey begins! Prepare to master powerful skills, forge your own
                 unique path, and face off against epic enemies in thrilling battles. Dive into

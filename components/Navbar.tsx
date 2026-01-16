@@ -71,7 +71,7 @@ export default function Navbar(prop: Prop) {
 
 
   return (
-    <nav className=' fixed z-50 top-0 max-w-[1440px] w-full h-auto text-white px-8'
+    <nav className=' fixed z-[99] top-0 max-w-[1440px] w-full h-auto text-white px-8'
 
     >
         <div className=' w-full hidden lg:flex items-center justify-between py-6 px-6 '
@@ -91,11 +91,7 @@ export default function Navbar(prop: Prop) {
 
                 <div className=' hidden lg:flex items-center gap-8'>
                     {links.map((item, index) => (
-                       
-
                             <Link href={item.path} key={index} className={`text-sm font-semibold uppercase text-black hover:text-red-900  cursor-pointer `}>{item.name}</Link>
-                     
-                        
                     ))}
                 </div>
             </div>
@@ -156,7 +152,7 @@ export default function Navbar(prop: Prop) {
                             initial='initial'
                             animate='enter'
                             exit='exit'
-                            key={index} href={item.path} className={`text-sm font-medium text-end uppercase flex items-center gap-4 justify-end ${item.path.split('/')[1].includes(prop.active) && 'underline'}`}>
+                            key={index} href={item.path} className={`text-sm font-medium text-end uppercase flex items-center gap-4 justify-end`}>
                                 {item.name === 'Store' ? (
                                     <Image src='/optimize/navigation/store BUTTON.png' alt="btn" width={110} height={60} className=' mt-4' loading='lazy'/>
                                 ) : (

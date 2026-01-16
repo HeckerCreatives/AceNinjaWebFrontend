@@ -156,7 +156,7 @@ export default function News() {
                 <div className=' w-full flex flex-col items-center p-8'>
                     <div className=' flex items-center justify-center gap-12'>
                         <Image src="/optimize/download/Title Side D.webp" alt="side" loading='lazy' width={40} height={40} className=' rotate-180'/>
-                        <h2 className=' text-3xl font-bold uppercase text-black'>News</h2>
+                        <h2 className=' text-2xl md:text-3xl font-bold uppercase text-black'>News</h2>
                         <Image src="/optimize/download/Title Side D.webp" alt="side" loading='lazy' width={40} height={40} className=''/>
 
                     </div>
@@ -235,7 +235,7 @@ export default function News() {
                                                         alt={item.title}
                                                         width={365}            // real rendered width
                                                         height={205}           // aspect-video approximate height
-                                                        className="w-full h-auto object-cover"
+                                                        className="w-full aspect-video h-auto object-cover"
                                                         priority={index === 0} // improves LCP (ONLY first item)
                                                         sizes="(max-width: 768px) 90vw, 365px"
                                                         />
@@ -243,7 +243,7 @@ export default function News() {
                                             ) : (
                                                 <div className="w-full aspect-video bg-zinc-200">
                                                     <iframe
-                                                        className="w-full h-full"
+                                                        className="w-full h-full aspect-video"
                                                         src={`https://www.youtube.com/embed/${item.url.split("/").pop()?.split("?")[0]}`}
                                                         title="YouTube Video"
                                                         frameBorder="0"
@@ -302,9 +302,9 @@ export default function News() {
             <div className=' w-full h-full flex flex-col items-center'>
                 <div className=' w-full flex flex-col items-center p-8'>
                     <div className=' flex items-center justify-center gap-6'>
-                        <Image src="/optimize/download/Title Side D.webp" alt="side" loading={'lazy'} width={50} height={50} className=' rotate-180 ~w-8/10'/>
-                        <h2 className=' text-3xl font-bold uppercase text-black'>News</h2>
-                        <Image src="/optimize/download/Title Side D.webp" alt="side" loading={'lazy'} width={50} height={50} className=' ~w-8/10'/>
+                        <Image src="/optimize/download/Title Side D.webp" alt="side" loading={'lazy'} width={40} height={40} className=' rotate-180 ~w-8/10'/>
+                        <h2 className=' text-2xl md:text-3xl font-bold uppercase text-black'>News</h2>
+                        <Image src="/optimize/download/Title Side D.webp" alt="side" loading={'lazy'} width={40} height={40} className=' ~w-8/10'/>
 
                     </div>
                 </div>
@@ -372,12 +372,12 @@ export default function News() {
                                                         backgroundPosition: "bottom",
                                                     }}
                                                 >
-                                                    <img src={`${process.env.NEXT_PUBLIC_API_URL}/${item.url}`} alt="img" />
+                                                    <img src={`${process.env.NEXT_PUBLIC_API_URL}/${item.url}`} alt="img" className=' w-full aspect-video' />
                                                 </div>
                                             ) : (
                                                 <div className="w-full aspect-video bg-zinc-200">
                                                     <iframe
-                                                        className="w-full h-full"
+                                                        className="w-full h-full aspect-video"
                                                         src={`https://www.youtube.com/embed/${item.url.split("/").pop()?.split("?")[0]}`}
                                                         title="YouTube Video"
                                                         frameBorder="0"
